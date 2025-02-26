@@ -1,0 +1,83 @@
+.about-container {
+    padding: 50px;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+  }
+  
+  .about-content {
+    display: flex;
+    align-items: center;
+    max-width: 900px;
+    width: 90%;
+  }
+  
+  /* PROFILE IMAGE */
+  .profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 40px;
+  }
+  
+  /* TEXT CONTENT */
+  .about-text {
+    max-width: 500px;
+  }
+  
+  .about-text h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .about-text p {
+    font-size: 1.2rem;
+    color: #ddd;
+  }
+  
+  /* RESPONSIVE FOR MOBILE */
+  @media (max-width: 768px) {
+    .about-container {
+      height: auto;
+      padding: 50px 20px;
+    }
+  
+    .about-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .profile-pic {
+      margin: 0 0 20px 0;
+    }
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Increased gap between buttons */
+    margin-top: 20px;
+  }  
+
+  .resume-button, .contact-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .resume-button:hover, .contact-button:hover {
+    background-color: #0056b3;
+  }
+  
+  

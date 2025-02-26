@@ -1,0 +1,227 @@
+/* Background Section */
+.background-container {
+    text-align: center;
+    padding: 100px 20px;
+    color: #fff;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Section Title */
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards 0.3s;
+}
+
+/* Carousel Layout */
+.background-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Background Slide - Add slide transition */
+.background-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 320px;
+    max-width: 900px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-in-out forwards;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Slide Animations */
+.slide-in-right {
+    animation: slideInRight 0.5s ease-in-out forwards;
+}
+
+.slide-out-left {
+    animation: slideOutLeft 0.5s ease-in-out forwards;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.5s ease-in-out forwards;
+}
+
+.slide-out-right {
+    animation: slideOutRight 0.5s ease-in-out forwards;
+}
+
+/* Background Cards Layout */
+.background-cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* Individual Card */
+.background-card {
+    background: #222;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    width: 45%;
+    min-width: 300px;
+    opacity: 0;
+    transform: scale(0.95);
+    animation: fadeIn 0.8s ease-in-out forwards 0.5s;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect for Cards */
+.background-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation Arrows */
+.carousel-btn {
+    background: none;
+    border: none;
+    color: #58a6ff;
+    font-size: 2.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+/* Arrow Hover Effects */
+.carousel-btn:hover {
+    transform: scale(1.2);
+    color: #007bff;
+}
+
+/* Left & Right Arrow Positioning */
+.carousel-btn.left {
+    left: -50px;
+}
+
+.carousel-btn.right {
+    right: -50px;
+}
+
+/* Adjust for Medium Screens */
+@media (max-width: 1024px) {
+    .carousel-btn.left {
+        left: -40px;
+    }
+
+    .carousel-btn.right {
+        right: -40px;
+    }
+}
+
+/* Keep Arrows on Sides for Mobile */
+@media (max-width: 768px) {
+    .carousel-btn {
+        font-size: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .carousel-btn.left {
+        left: 10px;
+    }
+
+    .carousel-btn.right {
+        right: 10px;
+    }
+}
+
+/* Adjust for Very Small Screens */
+@media (max-width: 480px) {
+    .carousel-btn {
+        font-size: 1.8rem;
+    }
+
+    .carousel-btn.left {
+        left: -65px;
+    }
+
+    .carousel-btn.right {
+        right: -65px;
+    }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fade-in Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide Animations */
+@keyframes slideInRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutLeft {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,136 @@
+/* Projects Section */
+.projects-container {
+    text-align: center;
+    padding: 100px 20px;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Title Animation */
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 0.3s;
+}
+
+/* Category Filters */
+.category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+/* Filter Buttons */
+.category-filters button {
+    background: none;
+    border: 2px solid #007bff;
+    color: #007bff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Active & Hover States */
+.category-filters button.active,
+.category-filters button:hover {
+    background: #007bff;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Fade-in animation */
+@keyframes fadeInProjects {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animation when switching categories */
+.fade-in .project-card {
+    animation: fadeInProjects 0.5s ease-out forwards;
+}
+
+/* Project Card */
+.project-card {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-out forwards 0.5s;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Project Card Hover Effect */
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Project Tags */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+/* Tag Styling */
+.tag {
+    background: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Tag Hover Effect */
+.tag:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
