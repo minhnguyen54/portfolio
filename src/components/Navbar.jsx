@@ -29,7 +29,7 @@ function Navbar() {
             </a>
           </li>
           <li>
-            <a href="#experience" onClick={() => setIsOpen(false)}>
+            <a href="#background" onClick={() => setIsOpen(false)}>
               Background
             </a>
           </li>
@@ -49,4 +49,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Navbar;                              
