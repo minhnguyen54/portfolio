@@ -13,7 +13,11 @@ function About() {
             portfolio!
           </p>
           <div className="button-group">
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+            <a
+              href="/portfolio/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <button className="resume-button">View Resume</button>
             </a>
             <a href="#contact">

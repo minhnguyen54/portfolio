@@ -53,6 +53,13 @@ function ChatBot() {
     }
   };
 
+  // Function to handle "Enter" key press
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      sendMessage();
+    }
+  };
+
   return (
     <div className="chatbot-container">
       <button className="chatbot-button" onClick={toggleChat}>
@@ -79,6 +86,7 @@ function ChatBot() {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyPress} // Press "Enter" to send
               placeholder="Type a message..."
             />
             <button onClick={sendMessage}>Send</button>
