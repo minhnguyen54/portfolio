@@ -9,7 +9,7 @@ const projects = [
     description:
       "Dodge falling rocks as Spider-Man! A simple reflex-based game.",
     tags: ["HTML", "CSS", "JavaScript"],
-    image: "/portfolio/public/images/spiderman-game.png",
+    image: "spiderman-game.png",
     link: "https://obi2.kean.edu/~nguyminh@kean.edu/CPS3500/U6AS3/game4/game4.html", // ADD YOUR GAME LINK HERE
   },
   {
