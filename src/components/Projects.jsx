@@ -19,7 +19,7 @@ const projects = [
     description:
       "Match Greek gods and mythological symbols in this fun puzzle game.",
     tags: ["HTML", "CSS", "JavaScript"],
-    image: "/portfolio/public/images/mythology-game.png",
+    image: "mythology-game.png",
     link: "https://obi2.kean.edu/~nguyminh@kean.edu/CPS3500/U6AS3/game3/game3.html", // ADD YOUR GAME LINK HERE
   },
   {
@@ -29,7 +29,7 @@ const projects = [
     description:
       "A futuristic alien battle game based on Rock-Paper-Scissors! Choose your weapon and defeat your opponent.",
     tags: ["HTML", "CSS", "JavaScript"],
-    image: "/portfolio/public/images/alien-game.png",
+    image: "alien-game.png",
     link: "https://obi2.kean.edu/~nguyminh@kean.edu/CPS3500/U6AS3/game2/game2.html", // ADD YOUR GAME LINK HERE
   },
 ];
@@ -95,3 +95,4 @@ const Projects = () => {
 };
 
 export default Projects;
+                                                  
