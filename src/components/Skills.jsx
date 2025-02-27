@@ -1,12 +1,33 @@
+import { useState } from "react";
 import "/src/Skills.css";
 
 function Skills() {
+  const [flipped, setFlipped] = useState(false);
+  const [flippedSecond, setFlippedSecond] = useState(false);
+
+  const toggleFlip = () => {
+    if (!flipped) {
+      setFlipped(true);
+    } else if (!flippedSecond) {
+      setFlippedSecond(true);
+    } else {
+      // Reset to first page (Frontend) when clicking on Others (last card)
+      setFlipped(false);
+      setFlippedSecond(false);
+    }
+  };
+
   return (
     <section id="skills" className="skills-container">
       <h1 className="skills-heading">My Skills</h1>
-      <div className="skills-cards">
-        {/* Frontend Skills */}
-        <div className="skill-card">
+      <div
+        className={`skills-cards ${flipped ? "flipped" : ""} ${
+          flippedSecond ? "flipped-second" : ""
+        }`}
+        onClick={toggleFlip}
+      >
+        {/* ✅ Frontend Skills (First Page) */}
+        <div className="skill-card front">
           <h2>Frontend</h2>
           <div className="skills-list">
             <div className="skill">
@@ -40,8 +61,8 @@ function Skills() {
           </div>
         </div>
 
-        {/* Backend Skills */}
-        <div className="skill-card">
+        {/* ✅ Backend Skills (Second Page) */}
+        <div className="skill-card middle">
           <h2>Backend</h2>
           <div className="skills-list">
             <div className="skill">
@@ -68,8 +89,8 @@ function Skills() {
           </div>
         </div>
 
-        {/* Others Section */}
-        <div className="skill-card">
+        {/* ✅ Others (Final Page) */}
+        <div className="skill-card back">
           <h2>Others</h2>
           <div className="skills-list">
             <div className="skill">
@@ -92,13 +113,6 @@ function Skills() {
                 alt="VS Code"
               />
               <span>VS Code</span>
-            </div>
-            <div className="skill">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetbrains/jetbrains-original.svg"
-                alt="Rider"
-              />
-              <span>Rider</span>
             </div>
           </div>
         </div>

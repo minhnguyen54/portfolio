@@ -3,225 +3,119 @@
     text-align: center;
     padding: 100px 20px;
     color: #fff;
-    position: relative;
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards;
 }
 
-/* Section Title */
+/* Section Titles */
 h2 {
     font-size: 2.5rem;
     margin-bottom: 30px;
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards 0.3s;
 }
 
-/* Carousel Layout */
-.background-carousel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    position: relative;
-    max-width: 900px;
-    margin: auto;
+h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
-/* Background Slide - Add slide transition */
-.background-slide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-width: 320px;
-    max-width: 900px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1s ease-in-out forwards;
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+/* Background Sections (Added Gap) */
+.background-section {
+    width: 100%;
+    margin-bottom: 200px;
 }
 
-/* Slide Animations */
-.slide-in-right {
-    animation: slideInRight 0.5s ease-in-out forwards;
+/* Background Wrapper (For Desktop Side-by-Side Layout) */
+@media (min-width: 1025px) {
+    .background-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 80px;
+    }
+    .background-section {
+        width: 45%;
+    }
 }
 
-.slide-out-left {
-    animation: slideOutLeft 0.5s ease-in-out forwards;
-}
-
-.slide-in-left {
-    animation: slideInLeft 0.5s ease-in-out forwards;
-}
-
-.slide-out-right {
-    animation: slideOutRight 0.5s ease-in-out forwards;
-}
-
-/* Background Cards Layout */
+/* Default Background Cards Layout (For Desktop View) */
 .background-cards {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 270px;
+    margin: auto;
 }
 
 /* Individual Card */
 .background-card {
+    position: absolute;
+    width: 100%;
     background: #222;
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     text-align: left;
-    width: 45%;
-    min-width: 300px;
+    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Second Back Card (Further Behind) */
+.background-card.back-second {
+    transform: translateX(50px) translateY(30px) rotate(2deg) scale(0.92);
+    opacity: 0.7;
+    z-index: 0;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Back Card Poking Out for Flip Effect */
+.background-card.back {
+    transform: translateX(30px) translateY(15px) rotate(2deg) scale(0.96);
+    opacity: 0.9;
+    z-index: 1;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Front Card Fully Visible */
+.background-card.front {
+    z-index: 2;
+}
+
+/* Flipped State */
+.flipped .background-card.front {
+    transform: rotateY(180deg);
     opacity: 0;
-    transform: scale(0.95);
-    animation: fadeIn 0.8s ease-in-out forwards 0.5s;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Hover Effect for Cards */
-.background-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+.flipped .background-card.back {
+    transform: rotateY(0);
+    opacity: 1;
+    z-index: 2;
 }
 
-/* Navigation Arrows */
-.carousel-btn {
-    background: none;
-    border: none;
-    color: #58a6ff;
-    font-size: 2.2rem;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
+.flipped .background-card.back-second {
+    transform: rotateY(0);
+    opacity: 0.8;
+    z-index: 1;
 }
 
-/* Arrow Hover Effects */
-.carousel-btn:hover {
-    transform: scale(1.2);
-    color: #007bff;
-}
-
-/* Left & Right Arrow Positioning */
-.carousel-btn.left {
-    left: -50px;
-}
-
-.carousel-btn.right {
-    right: -50px;
-}
-
-/* Adjust for Medium Screens */
-@media (max-width: 1024px) {
-    .carousel-btn.left {
-        left: -40px;
-    }
-
-    .carousel-btn.right {
-        right: -40px;
-    }
-}
-
-/* Keep Arrows on Sides for Mobile */
+/* 🔹 Mobile Fix: Stack & Flip with Right-Side Peek */
 @media (max-width: 768px) {
-    .carousel-btn {
-        font-size: 2rem;
-        top: 50%;
-        transform: translateY(-50%);
+    .background-wrapper {
+        flex-direction: column;
     }
 
-    .carousel-btn.left {
-        left: 10px;
+    .background-section {
+        width: 100%;
+        margin-bottom: 200px;
     }
 
-    .carousel-btn.right {
-        right: 10px;
-    }
-}
-
-/* Adjust for Very Small Screens */
-@media (max-width: 480px) {
-    .carousel-btn {
-        font-size: 1.8rem;
+    .background-cards {
+        width: 100%;
+        max-width: 400px;
+        height: 270px;
     }
 
-    .carousel-btn.left {
-        left: -65px;
-    }
-
-    .carousel-btn.right {
-        right: -65px;
-    }
-}
-
-/* Fade-in Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Fade-in Up Animation */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Slide Animations */
-@keyframes slideInRight {
-    from {
-        transform: translateX(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideOutLeft {
-    from {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateX(-50px);
-        opacity: 0;
-    }
-}
-
-@keyframes slideInLeft {
-    from {
-        transform: translateX(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideOutRight {
-    from {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateX(50px);
-        opacity: 0;
+    .background-card {
+        position: absolute;
+        width: 100%;
     }
 }

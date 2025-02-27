@@ -1,83 +1,130 @@
+/* About Me Section */
 .about-container {
-    padding: 50px;
-    text-align: center;
-    max-width: 800px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40vh;
-  }
-  
+  position: relative;
+  text-align: center;
+  padding: 100px 20px;
+  color: #fff;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Desktop View: Side-by-Side Layout */
+@media (min-width: 768px) {
   .about-content {
-    display: flex;
-    align-items: center;
-    max-width: 900px;
-    width: 90%;
+      display: flex;
+      align-items: center;
+      max-width: 800px;
+      width: 80%;
+      text-align: left;
   }
-  
-  /* PROFILE IMAGE */
-  .profile-pic {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 40px;
-  }
-  
-  /* TEXT CONTENT */
+
   .about-text {
-    max-width: 500px;
-  }
-  
-  .about-text h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-  
-  .about-text p {
-    font-size: 1.2rem;
-    color: #ddd;
-  }
-  
-  /* RESPONSIVE FOR MOBILE */
-  @media (max-width: 768px) {
-    .about-container {
-      height: auto;
-      padding: 50px 20px;
-    }
-  
-    .about-content {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .profile-pic {
-      margin: 0 0 20px 0;
-    }
+      max-width: 500px;
   }
 
-  .button-group {
-    display: flex;
-    justify-content: center;
-    gap: 10px; /* Increased gap between buttons */
-    margin-top: 20px;
-  }  
+  .profile-pic {
+      margin-right: 40px;
+  }
+}
 
-  .resume-button, .contact-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background 0.3s ease-in-out;
+/* Centering Buttons Under Heading */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* Wave Background Effect */
+.about-container::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: url('https://cdn.jsdelivr.net/gh/spencermountain/waves/wave.svg');
+  background-size: cover;
+  z-index: -1;
+}
+
+/* Profile Image Animation */
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  transition: box-shadow 0.3s ease-in-out;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Pulsing Glow Effect */
+.profile-pic:hover {
+  box-shadow: 0 0 30px rgba(0, 123, 255, 0.8);
+}
+
+/* Typing Effect for Name */
+.typing-name::after {
+  content: "|";
+  display: inline-block;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  50% {
+      opacity: 0;
   }
-  
-  .resume-button:hover, .contact-button:hover {
-    background-color: #0056b3;
+}
+
+/* Fade-in and Upward Motion */
+.about-text {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-in-out forwards 0.5s;
+}
+
+/* Button Effects */
+.resume-button, .contact-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.resume-button:hover, .contact-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
   }
-  
-  
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Typing Cursor Effect */
+.cursor {
+  display: inline-block;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  50% {
+      opacity: 0;
+  }
+}

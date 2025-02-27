@@ -17,41 +17,54 @@ function ChatBot() {
 
   const sendMessage = async () => {
     if (input.trim() === "") return;
-
+  
     const userMessage = { text: input, sender: "user" };
     setMessages([...messages, userMessage]);
     setInput("");
-
+  
     try {
-      const response = await fetch(API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: input }] }],
-        }),
-      });
-
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY}`, // ✅ Fixed endpoint
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: input }] }], // ✅ Correct field for Gemini API
+          }),
+        }
+      );
+  
       const data = await response.json();
-      console.log("Gemini API Response:", data); // Debugging
-
+      console.log("Gemini API Response:", JSON.stringify(data, null, 2)); // Debugging
+  
+      if (data.error) {
+        console.error("Gemini API Error:", data.error);
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { text: `Error: ${data.error.message}`, sender: "bot" },
+        ]);
+        return;
+      }
+  
+      // ✅ Correctly extract bot response
       const botResponse =
-        data.candidates?.[0]?.content?.parts?.[0]?.text ||
-        "I'm not sure how to respond.";
-
+        data.candidates?.[0]?.content?.parts?.[0]?.text || "No response from AI.";
+  
       setMessages((prevMessages) => [
         ...prevMessages,
         { text: botResponse, sender: "bot" },
       ]);
     } catch (error) {
-      console.error("Error fetching response:", error);
+      console.error("Fetch Error:", error);
       setMessages((prevMessages) => [
         ...prevMessages,
         { text: "Oops! Something went wrong.", sender: "bot" },
       ]);
     }
   };
+  
+  
+  
 
   // Function to handle "Enter" key press
   const handleKeyPress = (e) => {
