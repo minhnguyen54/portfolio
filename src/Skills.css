@@ -1,0 +1,176 @@
+/* Skills Section */
+.skills-container {
+  text-align: center;
+  padding: 100px 20px;
+  color: #fff;
+}
+
+/* Skills Heading */
+.skills-heading {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+/* Skills Cards Layout (Desktop View) */
+.skills-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+/* Individual Skill Card */
+.skill-card {
+  border-radius: 12px;
+  padding: 30px;
+  background-color: #242424;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  width: 280px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Keep the Headings Always Visible */
+.skill-card h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  opacity: 1; /* Ensure headings are always visible */
+}
+
+/* Hover Effect */
+.skill-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Skills List */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Skill Item */
+.skill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  background: #007bff;
+  color: white;
+  padding: 15px;
+  border-radius: 20px;
+  font-size: 1rem;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Adjusted Icon Sizes */
+.skill img {
+  width: 42px;
+  height: 42px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Icon Effects */
+.skill:hover img {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.skill:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile View: Stack & Flip Effect */
+@media (max-width: 768px) {
+  .skills-cards {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    height: 300px;
+    margin: auto;
+    cursor: pointer;
+    padding-top: 50px;
+  }
+
+  .skill-card {
+    position: absolute;
+    width: 100%;
+    border-radius: 12px;
+    padding: 30px;
+    background-color: #242424;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    backface-visibility: hidden;
+  }
+
+  .skill-card.front {
+    z-index: 3;
+  }
+
+  .skill-card.middle {
+    transform: translateY(-25px) scale(0.95);
+    opacity: 0.9;
+    z-index: 2;
+    box-shadow: 0px 6px 20px rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .skill-card.back {
+    transform: translateY(-50px) scale(0.92);
+    opacity: 0.8;
+    z-index: 1;
+    box-shadow: 0px 6px 25px rgba(0, 123, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .flipped .skill-card.front {
+    transform: rotateX(180deg) scale(0.95);
+    opacity: 0;
+  }
+
+  .flipped .skill-card.middle {
+    transform: rotateX(0deg) scale(1);
+    opacity: 1;
+    z-index: 3;
+  }
+
+  .flipped-second .skill-card.middle {
+    transform: rotateX(180deg) scale(0.95);
+    opacity: 0;
+  }
+
+  .flipped-second .skill-card.back {
+    transform: rotateX(0deg) scale(1);
+    opacity: 1;
+    z-index: 3;
+  }
+
+  @keyframes floatEffect {
+    0% { transform: translateY(-50px) scale(0.92); }
+    50% { transform: translateY(-55px) scale(0.94); }
+    100% { transform: translateY(-50px) scale(0.92); }
+  }
+
+  .skill-card.back {
+    animation: floatEffect 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseEffect {
+    0% { box-shadow: 0px 6px 25px rgba(0, 123, 255, 0.3); }
+    50% { box-shadow: 0px 8px 30px rgba(0, 123, 255, 0.6); }
+    100% { box-shadow: 0px 6px 25px rgba(0, 123, 255, 0.3); }
+  }
+
+  .skill-card.middle {
+    animation: pulseEffect 2.5s ease-in-out infinite;
+  }
+}

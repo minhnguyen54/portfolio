@@ -1,0 +1,110 @@
+.background-container {
+    text-align: center;
+    padding: 100px 20px;
+    color: #fff;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.background-section {
+    width: 100%;
+    margin-bottom: 200px;
+}
+
+@media (min-width: 1025px) {
+    .background-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 80px;
+    }
+    .background-section {
+        width: 45%;
+    }
+}
+
+.background-cards {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 270px;
+    margin: auto;
+}
+
+.background-card {
+    position: absolute;
+    width: 100%;
+    background: #222;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.background-card.back-second {
+    transform: translateX(50px) translateY(30px) rotate(2deg) scale(0.92);
+    opacity: 0.7;
+    z-index: 0;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.background-card.back {
+    transform: translateX(30px) translateY(15px) rotate(2deg) scale(0.96);
+    opacity: 0.9;
+    z-index: 1;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.background-card.front {
+    z-index: 2;
+}
+
+.flipped .background-card.front {
+    transform: rotateY(180deg);
+    opacity: 0;
+}
+
+.flipped .background-card.back {
+    transform: rotateY(0);
+    opacity: 1;
+    z-index: 2;
+}
+
+.flipped .background-card.back-second {
+    transform: rotateY(0);
+    opacity: 0.8;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .background-wrapper {
+        flex-direction: column;
+    }
+
+    .background-section {
+        width: 100%;
+        margin-bottom: 200px;
+    }
+
+    .background-cards {
+        width: 100%;
+        max-width: 400px;
+        height: 270px;
+    }
+
+    .background-card {
+        position: absolute;
+        width: 100%;
+    }
+}
